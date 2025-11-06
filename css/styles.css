@@ -81,7 +81,22 @@ section form input[type='submit']{
 section form input[type='submit']:active{
     transform: scale(0.97);
 }
-
+#messageError:empty,
+#messageValid:empty {
+    display: none;
+}
+#messageError {
+    color: red;
+    background-color: rgba(226, 191, 191, 0.685);
+    border-radius: 50px;
+    padding: 10px;
+}
+#messageValid{
+    color: green;
+    background-color: rgba(195, 223, 198, 0.685);
+    border-radius: 50px;
+    padding: 10px;
+}
 section p{
     margin-top: 1.5em;
 

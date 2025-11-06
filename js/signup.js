@@ -8,53 +8,54 @@ signupForm.addEventListener("submit", (e) => {
     const password = document.querySelector('#password')?.value || ''
     const confirmPassword = document.querySelector('#confirmPassword')?.value || ''
     const dob = document.querySelector('#dob')?.value || ''
-
-    // seleccionar con seguridad el select de grupo sanguíneo
     const gsElem = document.querySelector('#gs')
     const gs = gsElem ? gsElem.value : ''
 
     const Users = JSON.parse(localStorage.getItem('users')) || []
     const isUserRegistered = Users.find(user => user.email === email)
 
+    const messageError = document.getElementById('messageError')
+    const messageValid = document.getElementById('messageValid')
+    messageError.textContent = ''
+    messageValid.textContent = ''
+    let valid = true 
+
     // === VALIDACIONES ===
-
     if (!validateName(name)) {
-        return alert('Nombre inválido: sólo texto, máx. 50 caracteres.')
-    }
+        messageError.textContent = 'Nombre inválido: sólo texto, máx. 50 caracteres.'
+        valid = false
+    } else if (!validateEmail(email)) {
+        messageError.textContent = 'Email inválido.'
+        valid = false
+    } else if (isUserRegistered) {
+        messageError.textContent = 'Este email ya está registrado!'
+        valid = false
+    } else if (!validatePassword(password)) {
+        messageError.textContent = 'Contraseña inválida: mínimo 8 caracteres, al menos una letra y un número.'
+        valid = false
+    } else if (password !== confirmPassword) {
+        messageError.textContent = 'Las contraseñas no coinciden.'
+        valid = false
+    } else if (!validateDOB(dob)) {
+        messageError.textContent = 'Fecha de nacimiento inválida: debe ser anterior a hoy.'
+        valid = false
+    } else if (!validateGS(gs)) {
+        messageError.textContent = 'Debes seleccionar un grupo sanguíneo.'
+        valid = false
+    }e
 
-    if (!validateEmail(email)) {
-        return alert('Email inválido.')
-    }
+    // Si hay errores, no continuar
+    if (!valid) return
 
-    if (isUserRegistered) {
-        return alert('Este email ya está registrado!')
-    }
-
-    if (!validatePassword(password)) {
-        return alert('Contraseña inválida: mínimo 8 caracteres, al menos una letra y un número.')
-    }
-
-    if (password !== confirmPassword) {
-        return alert('Las contraseñas no coinciden.')
-    }
-
-    if (!validateDOB(dob)) {
-        return alert('Fecha de nacimiento inválida: debe ser anterior a hoy.')
-    }
-
-    if (!validateGS(gs)) {
-        return alert('Debes seleccionar un grupo sanguíneo.')
-    }
-
+    // === SI TODO OK ===
     Users.push({ name, email, password, dob, gs })
     localStorage.setItem('users', JSON.stringify(Users))
-    alert('Registro completado con éxito!')
+    messageValid.textContent = 'Registro completado con éxito!'
     window.location.href = 'login.html'
 })
 
 
 // === FUNCIONES DE VALIDACIÓN ===
-
 function validateName(name) {
     const regex = /^[A-Za-zÀ-ÿ\s]{1,50}$/
     return regex.test(name)
@@ -71,13 +72,9 @@ function validatePassword(password) {
 }
 
 function validateDOB(dob) {
-    if (!dob) return false
     const birthDate = new Date(dob)
-    if (isNaN(birthDate.getTime())) return false
     const today = new Date()
-    birthDate.setHours(0,0,0,0)
-    today.setHours(0,0,0,0)
-    return birthDate < today
+    return dob && birthDate < today
 }
 
 function validateGS(gs) {
