@@ -35,6 +35,7 @@ document.addEventListener('DOMContentLoaded', () => {
     if (!validateName(name)) {
       messageError.textContent = 'Nombre inválido: sólo texto, máx. 50 caracteres.'
       valid = false
+      
     } else if (!validateEmail(email)) {
       messageError.textContent = 'Email inválido.'
       valid = false
