@@ -1,9 +1,4 @@
-:root{
-    --font-mono: ui-monospace, Menlo, Monaco, 'Cascadia Mono', 'Segoe UI Mono',
-    'Roboto Mono', 'Oxygen Mono', 'Ubuntu Monospace', 'Source Code Pro',
-    'Fira Mono', 'Droid Sans Mono', 'Courier New', monospace;
-    --transition: all 0.1s cubic-bezier(0.645, 0.045, 0.355, 1)
-}
+
 
 * {
     margin:0;
@@ -11,9 +6,6 @@
     box-sizing:border-box;
 }
 
-body{
-    font-family: var(--font-mono);
-}
 
 section{
     display:flex;
@@ -74,7 +66,6 @@ section form input[type='submit']{
     margin-top: 1.5em;
     background-color: #003DFF;
     color: #fff;
-    font-family: var(--font-mono);
     transition: var(--transition);
 } 
 
@@ -114,7 +105,6 @@ section p a{
 section button{
     background-color: #003DFF;
     color: #fff;
-    font-family: var(--font-mono);
     transition: var(--transition);
     border: none;
     padding: 0.5em 1em;

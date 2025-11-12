@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Mi Perfil</title>
+<script src="https://cdn.tailwindcss.com"></script>
+
+</head>
+<body>
+    <div id="navbar-container"></div>
+
+    <script>
+        fetch('navbar.html')
+            .then(response => response.text())
+            .then(data => {
+            document.getElementById('navbar-container').innerHTML = data    
+            })
+            .catch(err => console.error('Error cargando navbar:', err))
+    </script>
+    
+<div class="container mx-auto py-5">
+  <!-- Título principal -->
+  <div class="text-center mb-4">
+    <h1 class="font-bold text-3xl">Mi Perfil</h1>
+  </div>
+
+  <!-- Card -->
+  <div class="mx-auto shadow-lg rounded-lg" style="max-width: 600px;">
+    <div class="p-4">
+      <!-- Título de la card -->
+      <h5 class="text-center mb-4 text-xl font-semibold">Datos del usuario</h5>
+
+      <!-- Tabla responsive -->
+      <div class="overflow-x-auto">
+        <table id="userTable" class="min-w-full border border-gray-300 text-center align-middle">
+          <thead class="bg-gray-100">
+            <tr>
+              <th class="px-4 py-2 border-b border-gray-300">Campo</th>
+              <th class="px-4 py-2 border-b border-gray-300">Valor</th>
+            </tr>
+          </thead>
+          <tbody class="px-5 py-2 divide-y divide-gray-300">
+        
+          </tbody>
+        </table>
+      </div>
+
+      
+      <div class="text-center mt-4">
+        <button
+          id="logoutBtn"
+          class="px-4 py-2 border border-red-500 text-red-500 font-bold rounded hover:bg-red-500 hover:text-white transition-colors duration-300"
+        >
+          Cerrar sesión
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+  <script src="js/myprofile.js"></script>
+</body>
+</html>

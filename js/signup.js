@@ -42,20 +42,18 @@ signupForm.addEventListener("submit", (e) => {
     } else if (!validateGS(gs)) {
         messageError.textContent = 'Debes seleccionar un grupo sanguíneo.'
         valid = false
-    }e
+    }
 
-    // Si hay errores, no continuar
     if (!valid) return
 
-    // === SI TODO OK ===
-    Users.push({ name, email, password, dob, gs })
+
+    const id = Users.length + 1
+    Users.push({ id, name, email, password, dob, gs })
     localStorage.setItem('users', JSON.stringify(Users))
     messageValid.textContent = 'Registro completado con éxito!'
     window.location.href = 'login.html'
 })
 
-
-// === FUNCIONES DE VALIDACIÓN ===
 function validateName(name) {
     const regex = /^[A-Za-zÀ-ÿ\s]{1,50}$/
     return regex.test(name)
