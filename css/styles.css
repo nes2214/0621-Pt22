@@ -17,7 +17,7 @@ body {
 
 /* Títulos */
 h1, h2, h3 {
-  color: #ec4899; /* rosa */
+  color: #486eec; /* rosa */
   font-weight: 600;
   letter-spacing: 0.05em;
 }
@@ -43,11 +43,13 @@ input[type="date"]{
   width: 100%;
   padding: 0.5rem 0.75rem;
   border-radius: 0.5rem;
-  background-color: #1f2937;
+  background-color: #ffffff;
   border: 1px solid #374151;
-  color: #f9fafb;
+  color: #000000;
   outline: none;
 }
+
+
 form select {
   width: 100%;
   padding: 0.75rem 1rem;
@@ -72,17 +74,15 @@ form input[type="submit"] {
   box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
 }
 
-form button:hover,
+
 form input[type="submit"]:hover {
-  background-color: #db2777;
+  background-color: #486eec;
   transform: scale(1.02);
 }
 
-input:focus,
-select:focus {
-  border-color: #ec4899;
-  box-shadow: 0 0 0 2px rgba(236, 72, 153, 0.3);
-}
+
+
+
 
 /* Botones */
 input[type="submit"]{
@@ -100,7 +100,7 @@ input[type="submit"]{
 
 input[type="submit"]:hover,
 button:hover {
-  background-color: #db2777;
+  background-color: #486eec;
   transform: scale(1.02);
 }
 
@@ -145,6 +145,10 @@ nav {
   color: #f3f4f6;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.4);
 }
+#search::placeholder {
+  color: black
+  
+}
 
 /* Enlaces del navbar */
 nav a {
@@ -154,10 +158,12 @@ nav a {
   padding-bottom: 2px; /* da un poco de espacio para la línea rosa */
   transition: color 0.3s ease;
 }
-
+svg {
+  color: blue
+}
 /* Color en hover */
 nav a:hover {
-  color: #ec4899;
+  color: #61a393;
 }
 
 /* Línea rosa personalizada */
@@ -168,7 +174,7 @@ nav a::after {
   bottom: 0;
   height: 2px;
   width: 0;
-  background: #ec4899;
+  background: #48ecad;
   transition: width 0.3s ease;
   border-radius: 9999px;
 }
@@ -193,9 +199,7 @@ nav a {
 }
 
 /* Color en hover */
-nav a:hover {
-  color: #ec4899;
-}
+
 
 /* Línea rosa personalizada */
 nav a::after {
@@ -205,7 +209,7 @@ nav a::after {
   bottom: 0;
   height: 2px;
   width: 0;
-  background: #ec4899;
+  background: #1c68cc;
   transition: width 0.3s ease;
   border-radius: 9999px;
 }

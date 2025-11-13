@@ -1,23 +1,59 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ca">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <script src="https://cdn.tailwindcss.com"></script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Els meus tractaments</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="css/styles.css">
 </head>
 
-<body>
-    <div id="navbar-container"></div>
+<body class="bg-gray-50 min-h-screen">
+  <!-- Navbar -->
+  <div id="navbar-container"></div>
+  <script>
+    fetch('navbar.html')
+      .then(response => response.text())
+      .then(data => {
+        document.getElementById('navbar-container').innerHTML = data
+      })
+      .catch(err => console.error('Error cargando navbar:', err))
+  </script>
 
-    <script>
-        fetch('navbar.html')
-            .then(response => response.text())
-            .then(data => {
-                document.getElementById('navbar-container').innerHTML = data
-            })
-            .catch(err => console.error('Error cargando navbar:', err))
-    </script>
-    
+  <!-- Contenido principal -->
+  <h1 class="text-3xl font-semibold text-center text-blue-500 mt-8">
+    Els meus tractaments
+  </h1>
+
+  <div class="flex flex-col items-center justify-center px-6 py-12 space-y-6">
+    <!-- Barra de búsqueda -->
+    <section class="flex flex-wrap justify-center items-center gap-4 w-full max-w-2xl">
+      <div class="flex items-center w-full sm:w-auto bg-white shadow-lg rounded-full border border-blue-200 px-4 py-2">
+        <svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#3b82f6" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M10 10m-7 0a7 7 0 1 0 14 0a7 7 0 1 0 -14 0" />
+          <path d="M21 21l-6 -6" />
+        </svg>
+        <input 
+          id="search" 
+          type="search" 
+          placeholder="Buscar tractaments..." 
+          class="flex-grow bg-transparent outline-none text-gray-700 placeholder-gray-400 text-lg pl-3 hover:scale-100 transition-transform"
+          
+        >
+      </div>
+
+      <!-- Botón de crear -->
+      <button id="createBtn"
+        class="bg-blue-500 hover:bg-blue-600 text-white font-medium px-5 py-2 rounded-full transition-all focus:outline-none focus:ring-2 focus:ring-blue-300">
+        Crear
+      </button>
+    </section>
+
+    <!-- Contenedor dinámico -->
+    <div id="treatmentsContainer" class="w-full max-w-3xl space-y-4 mt-8"></div>
+  </div>
+
+  <!-- Script externo -->
+  <script src="js/treatments.js"></script>
 </body>
 </html>
