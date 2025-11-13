@@ -8,7 +8,7 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   // Rellenar el formulario con los datos guardados
-  document.getElementById('id').value = loggedUser.id || ''
+  document.getElementById('id').value = '-'
   document.getElementById('name').value = loggedUser.name || ''
   document.getElementById('email').value = loggedUser.email || ''
   document.getElementById('password').value = loggedUser.password || ''

@@ -1,114 +1,226 @@
+/* === ESTILOS GENERALES === */
 
+/* Fondo general y fuente moderna */
+body {
+  background: linear-gradient(to bottom right, #0f0f1a, #111827, #0f0f1a);
+  color: #f3f4f6;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  font-family: 'Inter', sans-serif;
+}
 
+/* Transiciones suaves */
 * {
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
+  transition: all 0.3s ease-in-out;
 }
 
-
-section{
-    display:flex;
-    flex-wrap: wrap;
-    height: 100vh;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
-    padding: 1em;
+/* Títulos */
+h1, h2, h3 {
+  color: #ec4899; /* rosa */
+  font-weight: 600;
+  letter-spacing: 0.05em;
 }
 
-section h1{
-    font-size: 3em;
+/* Formularios */
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
 }
 
-section h2{
-    text-align:center;
-    width: 100%;
-    margin-bottom: 1em;
-    font-size: 2.5em
+label {
+  display: block;
+  font-size: 0.9rem;
+  font-weight: 500;
+  margin-bottom: 0.25rem;
 }
 
-section form{
-    padding: 1.5em;
-    display:flex;
-    flex-wrap: wrap;
-    max-width: 500px;
-    border-radius: 20px;
-    border: 2px solid rgba(0,0,0,.1);
+input[type="text"],
+input[type="email"],
+input[type="password"],
+input[type="date"]{
+  width: 100%;
+  padding: 0.5rem 0.75rem;
+  border-radius: 0.5rem;
+  background-color: #1f2937;
+  border: 1px solid #374151;
+  color: #f9fafb;
+  outline: none;
+}
+form select {
+  width: 100%;
+  padding: 0.75rem 1rem;
+  border-radius: 0.5rem;
+  background-color: #1f2937;
+  border: 1px solid #374151;
+  color: #f9fafb;
+  outline: none;
+}
+form button,
+form input[type="submit"] {
+  all: unset;
+  display: block;
+  width: 100%;
+  padding: 0.6rem 0;
+  background-color: #ec4899;
+  color: #fff;
+  font-weight: 600;
+  text-align: center;
+  border-radius: 0.5rem;
+  cursor: pointer;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
 }
 
-section form label{
-    width: 100%;
-    padding: 0.2em;
-    margin-bottom: 0.5em;
+form button:hover,
+form input[type="submit"]:hover {
+  background-color: #db2777;
+  transform: scale(1.02);
 }
 
-section form input{
-    width: 100%;
-    margin-bottom: 1em;
-    padding: 0.8em;
-    border-radius: 9px;
-    border: none;
-    outline-color: #003DFF;
-    background-color: #eee;
-}
-section form select{
-    width: 100%;
-    margin-bottom: 1em;
-    padding: 0.8em;
-    border-radius: 9px;
-    border: none;
-    outline-color: #003DFF;
-    background-color: #eee;
+input:focus,
+select:focus {
+  border-color: #ec4899;
+  box-shadow: 0 0 0 2px rgba(236, 72, 153, 0.3);
 }
 
-section form input[type='submit']{
-    margin-top: 1.5em;
-    background-color: #003DFF;
-    color: #fff;
-    transition: var(--transition);
-} 
+/* Botones */
+input[type="submit"]{
+  width: 100%;
+  padding: 0.6rem 0;
+  margin-top: 1rem;
+  background-color: #ec4899;
+  color: #fff;
+  font-weight: 600;
+  border: none;
+  border-radius: 0.5rem;
+  cursor: pointer;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+}
 
-section form input[type='submit']:active{
-    transform: scale(0.97);
+input[type="submit"]:hover,
+button:hover {
+  background-color: #db2777;
+  transform: scale(1.02);
 }
-#messageError:empty,
-#messageValid:empty {
-    display: none;
-}
+
+/* Mensajes */
 #messageError {
-    color: red;
-    background-color: rgba(226, 191, 191, 0.685);
-    border-radius: 50px;
-    padding: 10px;
+  color: #f87171;
+  font-size: 0.9rem;
+  margin-top: 0.5rem;
 }
-#messageValid{
-    color: green;
-    background-color: rgba(195, 223, 198, 0.685);
-    border-radius: 50px;
-    padding: 10px;
-}
-section p{
-    margin-top: 1.5em;
 
+#messageValid {
+  color: #34d399;
+  font-size: 0.9rem;
+  margin-top: 0.25rem;
 }
 
 
-section p a{
-    text-decoration: none;
-    color: #003DFF;
+
+/* === SECCIONES CENTRADAS === */
+section {
+  flex-grow: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 4rem 1rem;
+}
+
+section > div {
+  background: rgba(17, 24, 39, 0.9);
+  backdrop-filter: blur(8px);
+  border-radius: 1rem;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+  width: 100%;
+  max-width: 28rem;
+  padding: 2rem;
 }
 
 
-/* Home */
+/* === NAVBAR === */
+nav {
+  background: linear-gradient(to right, #111827, #000, #111827);
+  color: #f3f4f6;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.4);
+}
 
-section button{
-    background-color: #003DFF;
-    color: #fff;
-    transition: var(--transition);
-    border: none;
-    padding: 0.5em 1em;
-    border-radius: 9px;
-    margin-top: 1.5em;
-    font-size: 1em;
+/* Enlaces del navbar */
+nav a {
+  color: inherit;
+  text-decoration: none; /* ✅ quita el subrayado por defecto */
+  position: relative;
+  padding-bottom: 2px; /* da un poco de espacio para la línea rosa */
+  transition: color 0.3s ease;
+}
+
+/* Color en hover */
+nav a:hover {
+  color: #ec4899;
+}
+
+/* Línea rosa personalizada */
+nav a::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  height: 2px;
+  width: 0;
+  background: #ec4899;
+  transition: width 0.3s ease;
+  border-radius: 9999px;
+}
+
+nav a:hover::after {
+  width: 100%;
+}
+/* === NAVBAR === */
+nav {
+  background: linear-gradient(to right, #111827, #000, #111827);
+  color: #f3f4f6;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.4);
+}
+
+/* Enlaces del navbar */
+nav a {
+  color: inherit;
+  text-decoration: none; /* ✅ quita el subrayado por defecto */
+  position: relative;
+  padding-bottom: 2px; /* da un poco de espacio para la línea rosa */
+  transition: color 0.3s ease;
+}
+
+/* Color en hover */
+nav a:hover {
+  color: #ec4899;
+}
+
+/* Línea rosa personalizada */
+nav a::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  height: 2px;
+  width: 0;
+  background: #ec4899;
+  transition: width 0.3s ease;
+  border-radius: 9999px;
+}
+
+nav a:hover::after {
+  width: 100%;
+}
+
+
+@media (max-width: 640px) {
+  section {
+    padding: 2.5rem 1rem;
+  }
+
+  section > div {
+    padding: 1.5rem;
+  }
 }
